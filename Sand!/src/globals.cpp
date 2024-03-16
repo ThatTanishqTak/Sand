@@ -2,8 +2,8 @@
 
 std::list<GameObjects*> gameObject;
 
-int windowWidth = 400;
-int windowHeight = 400;
+int windowWidth = 1080;
+int windowHeight = 720;
 
 float mouseX = GetMouseX();
 float mouseY = GetMouseY();

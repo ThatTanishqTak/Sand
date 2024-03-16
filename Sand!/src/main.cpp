@@ -4,9 +4,7 @@
 
 int main()
 {
-	SetConfigFlags(FLAG_WINDOW_RESIZABLE);
 	InitWindow(windowWidth, windowHeight, "Sand!");
-	SetTargetFPS(GetFPS());
 
 	Player player;
 	Background background;
@@ -24,5 +22,6 @@ int main()
 	}
 
 	CloseWindow();
+
 	return 0;
 }

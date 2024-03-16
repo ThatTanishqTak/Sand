@@ -1,10 +1,11 @@
 #include "background.h"
+#include <iostream>
 
 Background::Background() : cellWidth(10.0f), cellHeight(10.0f),
 						   rows(windowWidth / cellWidth), cols(windowHeight / cellHeight),
-						   grid(rows, std::vector<int>(cols, 0))
+						   grid(static_cast<__int64>(rows), std::vector<int>(static_cast<__int64>(cols), 0))
 {
-	rectangles = Make2DGrid(rows, cols);
+	rectangles = Make2DGrid(static_cast<int>(rows), static_cast<int>(cols));
 
 	gameObject.push_back(this);
 }
@@ -19,6 +20,8 @@ void Background::Update()
 	Drawing();
 
 	Erasing();
+
+	Physics();
 }
 
 
@@ -32,7 +35,7 @@ void Background::Render()
 			float rectY = i * cellWidth;
 
 			Color color = grid[i][j] == 1 ? WHITE : BLACK;
-			DrawRectangle(rectX, rectY, cellWidth, cellHeight, color);
+			DrawRectangle(static_cast<int>(rectX), static_cast<int>(rectY), static_cast<int>(cellWidth), static_cast<int>(cellHeight), color);
 		}
 	}
 }
@@ -83,4 +86,9 @@ void Background::Erasing()
 			}
 		}
 	}
+}
+
+void Background::Physics()
+{
+
 }

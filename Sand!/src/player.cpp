@@ -12,7 +12,7 @@ Player::~Player()
 
 void Player::Update()
 {
-	if (IsMouseButtonPressed(0) || IsMouseButtonPressed(1))
+	if (IsMouseButtonDown(0) || IsMouseButtonDown(1))
 	{ 
 		mouseX = GetMouseX();
 		mouseY = GetMouseY();

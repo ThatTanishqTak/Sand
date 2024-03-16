@@ -24,6 +24,7 @@ private:
 	std::vector<Rectangle> Make2DGrid(int row, int col);
 	void Drawing();
 	void Erasing();
+	void Physics();
 };
 
 #endif
