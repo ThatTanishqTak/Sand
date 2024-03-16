@@ -13,9 +13,9 @@ Player::~Player()
 void Player::Update()
 {
 	if (IsMouseButtonDown(0) || IsMouseButtonDown(1))
-	{ 
-		mouseX = GetMouseX();
-		mouseY = GetMouseY();
+	{
+		mouseX = static_cast<float>(GetMouseX());
+		mouseY = static_cast<float>(GetMouseY());
 	}
 }
 
