@@ -20,9 +20,10 @@ private:
 
 	std::vector<std::vector<int>> grid;
 	std::vector<Rectangle> rectangles;
-	Rectangle gridR;
 
 	std::vector<Rectangle> Make2DGrid(int row, int col);
+	void Drawing();
+	void Erasing();
 };
 
 #endif
