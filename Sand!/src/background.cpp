@@ -34,7 +34,7 @@ void Background::Render()
 			float rectX = j * cellHeight;
 			float rectY = i * cellWidth;
 
-			Color color = grid[i][j] == 1 ? WHITE : BLACK;
+			Color color = grid[i][j] == 1 ? BROWN : BLACK;
 			DrawRectangle(static_cast<int>(rectX), static_cast<int>(rectY), static_cast<int>(cellWidth), static_cast<int>(cellHeight), color);
 		}
 	}
@@ -56,7 +56,7 @@ std::vector<Rectangle> Background::Make2DGrid(int rows, int cols)
 
 void Background::Drawing()
 {
-	if (IsMouseButtonPressed(0))
+	if (IsMouseButtonDown(0))
 	{
 		for (const auto& rect : rectangles)
 		{
@@ -73,7 +73,7 @@ void Background::Drawing()
 
 void Background::Erasing()
 {
-	if (IsMouseButtonPressed(1))
+	if (IsMouseButtonDown(1))
 	{
 		for (const auto& rect : rectangles)
 		{
@@ -103,12 +103,26 @@ void Background::Physics()
 				{
 					if (i + 1 < rows && j < cols)
 					{
-						int below = grid[static_cast<std::vector<std::vector<int, std::allocator<int>>, std::allocator<std::vector<int, std::allocator<int>>>>::size_type>(i) + 1][j];
+						int below = grid[i + 1][j];
+						int belowR = grid[i + 1][j + 1];
+						int belowL = grid[i + 1][j - 1];
+
 						if (below == 0)
 						{
 							newGrid[i][j] = 0;
-							newGrid[static_cast<std::vector<std::vector<int, std::allocator<int>>, std::allocator<std::vector<int, std::allocator<int>>>>::size_type>(i) + 1][j] = 1;
+							newGrid[i + 1][j] = 1;
 						}
+						else if (belowR == 0)
+						{
+							newGrid[i][j] = 0;
+							newGrid[i][j + 1] = 1;
+						}
+						else if (belowL == 0)
+						{
+							newGrid[i][j] = 0;
+							newGrid[i][j - 1] = 1;
+						}
+						else { newGrid[i][j] = 1; }
 					}
 				}
 			}
