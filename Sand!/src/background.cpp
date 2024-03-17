@@ -10,10 +10,7 @@ Background::Background() : cellSize(10.0f),
 	gameObject.push_back(this);
 }
 
-Background::~Background()
-{
-
-}
+Background::~Background() {/* EMPTY */ }
 
 void Background::Update()
 {

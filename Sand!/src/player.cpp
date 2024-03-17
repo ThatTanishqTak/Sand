@@ -1,14 +1,8 @@
 #include "player.h"
 
-Player::Player()
-{
-	gameObject.push_back(this);
-}
+Player::Player() { gameObject.push_back(this); }
 
-Player::~Player()
-{
-
-}
+Player::~Player() { /* EMPTY */ }
 
 void Player::Update()
 {
@@ -19,7 +13,4 @@ void Player::Update()
 	}
 }
 
-void Player::Render()
-{
-
-}
+void Player::Render(){ /* EMPTY */ }
