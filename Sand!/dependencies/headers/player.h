@@ -13,6 +13,10 @@ public:
 	virtual void Render();
 
 private:
+	struct Particles
+	{
+
+	};
 };
 
 #endif

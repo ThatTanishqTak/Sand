@@ -13,8 +13,7 @@ public:
 	virtual void Render();
 
 private:
-	float cellWidth;
-	float cellHeight;
+	float cellSize;
 	float rows;
 	float cols;
 
