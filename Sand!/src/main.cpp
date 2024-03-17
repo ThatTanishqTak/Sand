@@ -5,6 +5,7 @@
 int main()
 {
 	InitWindow(windowWidth, windowHeight, "Sand!");
+	SetTargetFPS(30);
 
 	Player player;
 	Background background;
@@ -22,6 +23,5 @@ int main()
 	}
 
 	CloseWindow();
-
 	return 0;
 }

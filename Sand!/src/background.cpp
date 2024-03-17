@@ -90,5 +90,30 @@ void Background::Erasing()
 
 void Background::Physics()
 {
+	std::vector<std::vector<int>> newGrid = grid;
 
+	for (int i = 0; i < rows; i++)
+	{
+		for (int j = 0; j < cols; j++)
+		{
+			if (i < rows && j < cols)
+			{
+				int state = grid[i][j];
+				if (state == 1)
+				{
+					if (i + 1 < rows && j < cols)
+					{
+						int below = grid[static_cast<std::vector<std::vector<int, std::allocator<int>>, std::allocator<std::vector<int, std::allocator<int>>>>::size_type>(i) + 1][j];
+						if (below == 0)
+						{
+							newGrid[i][j] = 0;
+							newGrid[static_cast<std::vector<std::vector<int, std::allocator<int>>, std::allocator<std::vector<int, std::allocator<int>>>>::size_type>(i) + 1][j] = 1;
+						}
+					}
+				}
+			}
+		}
+	}
+
+	grid = newGrid;
 }
