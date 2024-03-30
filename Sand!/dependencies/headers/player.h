@@ -2,6 +2,7 @@
 #define PLAYER_H
 
 #include "globals.h"
+#include <sstream>
 
 class Player : public GameObjects
 {
@@ -12,7 +13,24 @@ public:
 	virtual void Update();
 	virtual void Render();
 
+	int currentParticle;
+
+	struct Particles
+	{
+		int ID;
+		Color color;
+	};
+
+	Particles sand;
+	Particles water;
+	Particles stone;
+	Particles gas;
+
+	std::string selectedParticle;
+
 private:
+	void ChangeParticle();
+	void UpdateUI();
 };
 
 #endif

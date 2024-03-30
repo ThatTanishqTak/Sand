@@ -6,6 +6,7 @@
 #include <list>
 #include <vector>
 
+
 extern std::list<GameObjects*> gameObject;
 
 extern int windowWidth;
