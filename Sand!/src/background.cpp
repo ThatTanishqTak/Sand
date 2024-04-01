@@ -27,6 +27,8 @@ void Background::Render()
 	UI();
 }
 
+//------------------------------------------------START UP FUNCTION()--------------------------------------------------------------------------------//
+
 std::vector<Rectangle> Background::Make2DGrid(int rows, int cols)
 {
 	for (int i = 0; i < rows; i++)
@@ -40,6 +42,8 @@ std::vector<Rectangle> Background::Make2DGrid(int rows, int cols)
 
 	return rectangles;
 }
+
+//-------------------------------------------------ALL THE UPDATE FUNCTIONS()------------------------------------------------------------------------------//
 
 void Background::UpdateGrid(int button, int action)
 {
@@ -165,6 +169,8 @@ void Background::Physics()
 
 	grid = newGrid;
 }
+
+//-------------------------------------------------ALL THE RENDER FUNCTIONS()------------------------------------------------------------------------------//
 
 void Background::UI() { DrawText(player->selectedParticle.c_str(), 10, 10, 24, RED); }
 
