@@ -28,9 +28,10 @@ private:
 	//------------------------FUNCTION()----------------------------------//
 
 	std::vector<Rectangle> Make2DGrid(int row, int col);
-	void ModifyGrid(int button, int action);
+	void UpdateGrid(int button, int action);
 	void Physics();
 	void UI();
+	void RenderGrid();
 };
 
 #endif

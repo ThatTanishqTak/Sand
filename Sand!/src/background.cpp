@@ -15,43 +15,14 @@ Background::~Background() { /* EMPTY */ }
 
 void Background::Update()
 {
-	ModifyGrid(0, player->currentParticle); // On left click
+	UpdateGrid(0, player->currentParticle); // On left click
 
 	Physics();
 }
 
 void Background::Render() 
 {
-	for (int i = 0; i < grid.size(); i++)
-	{
-		for (int j = 0; j < grid[i].size(); j++)
-		{
-			float rectX = j * cellSize;
-			float rectY = i * cellSize;
-
-			Color color;
-			switch (grid[i][j])
-			{
-			case 1: // sand.ID = 1
-				color = player->sand.color;
-				break;
-			case 2: // water.ID = 2
-				color = player->water.color;
-				break;
-			case 3: // stone.ID = 3
-				color = player->stone.color;
-				break;
-			case 4: // gas.ID = 4
-				color = player->gas.color;
-				break;
-			default:
-				color = BLACK; // Default color for empty cell
-				break;
-			}
-
-			DrawRectangle(static_cast<int>(rectX), static_cast<int>(rectY), static_cast<int>(cellSize), static_cast<int>(cellSize), color);
-		}
-	}
+	RenderGrid();
 
 	UI();
 }
@@ -70,7 +41,7 @@ std::vector<Rectangle> Background::Make2DGrid(int rows, int cols)
 	return rectangles;
 }
 
-void Background::ModifyGrid(int button, int action)
+void Background::UpdateGrid(int button, int action)
 {
 	if (IsMouseButtonDown(button)) 
 	{
@@ -196,3 +167,37 @@ void Background::Physics()
 }
 
 void Background::UI() { DrawText(player->selectedParticle.c_str(), 10, 10, 24, RED); }
+
+void Background::RenderGrid()
+{
+	for (int i = 0; i < grid.size(); i++)
+	{
+		for (int j = 0; j < grid[i].size(); j++)
+		{
+			float rectX = j * cellSize;
+			float rectY = i * cellSize;
+
+			Color color;
+			switch (grid[i][j])
+			{
+			case 1: // sand.ID = 1
+				color = player->sand.color;
+				break;
+			case 2: // water.ID = 2
+				color = player->water.color;
+				break;
+			case 3: // stone.ID = 3
+				color = player->stone.color;
+				break;
+			case 4: // gas.ID = 4
+				color = player->gas.color;
+				break;
+			default:
+				color = BLACK; // Default color for empty cell
+				break;
+			}
+
+			DrawRectangle(static_cast<int>(rectX), static_cast<int>(rectY), static_cast<int>(cellSize), static_cast<int>(cellSize), color);
+		}
+	}
+}
