@@ -4,7 +4,7 @@
 
 int main()
 {
-	InitWindow(windowWidth, windowHeight, "Sand!"); 
+	InitWindow(windowWidth, windowHeight, "Sand!"); // Initialize window
 	SetTargetFPS(35); // Lock the FPS to 35 to make the sand fall at a reasonable rate
 
 	Player player;
@@ -22,6 +22,7 @@ int main()
 		EndDrawing();
 	}
 
-	CloseWindow();
-	return 0;
+	CloseWindow(); // De-Initialize window
+	
+	return 0; // Exit code
 }

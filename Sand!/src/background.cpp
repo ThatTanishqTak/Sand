@@ -15,7 +15,7 @@ Background::~Background() { /* EMPTY */ }
 
 void Background::Update()
 {
-	ModifyGrid(0, player->currentParticle); // Left click
+	ModifyGrid(0, player->currentParticle); // On left click
 
 	Physics();
 }
@@ -169,13 +169,22 @@ void Background::Physics()
 					if (i > 0 && j < cols)
 					{
 						int above = grid[i - 1][j];
+						int aboveR = grid[i - 1][j + 1];
+						int aboveL = grid[i - 1][j - 1];
+						int right = grid[i][j + 1];
+						int left = grid[i][j - 1];
 
 						if (above == 0)
 						{
 							newGrid[i][j] = 0;
 
 							if (above == 0) { newGrid[i - 1][j] = player->gas.ID; }
+							else if (aboveR == 0) { newGrid[i - 1][j + 1] = player->gas.ID; }
+							else if (aboveL == 0) { newGrid[i - 1][j - 1] = player->gas.ID; }
+							else if (right == 0) { newGrid[i][j + 1] = player->gas.ID; }
+							else if (left == 0) { newGrid[i][j - 1] = player->gas.ID; }
 						}
+						else if (newGrid[i][j] == player->gas.ID) { newGrid[i][j] = player->gas.ID; }
 					}
 				}
 				if (state == player->stone.ID) { newGrid[i][j] = player->stone.ID; } // Stone physics

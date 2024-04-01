@@ -39,11 +39,8 @@ void Player::Render() { /* EMPTY */ }
 
 void Player::ChangeParticle()
 {
-	if (IsKeyPressed(KEY_UP)) { currentParticle += 1; }
-	if (IsKeyPressed(KEY_DOWN)) { currentParticle -= 1; }
-
-	if (currentParticle > 4) { currentParticle = 0; }
-	if (currentParticle < 0) { currentParticle = 4; }
+	currentParticle = (IsKeyPressed(KEY_UP) ? currentParticle + 1 : currentParticle) % 5;
+	currentParticle = (IsKeyPressed(KEY_DOWN) ? currentParticle - 1 : currentParticle) % 5;
 }
 
 void Player::UpdateUI()

@@ -14,6 +14,7 @@ public:
 	virtual void Render();
 
 	int currentParticle;
+	std::string selectedParticle;
 
 	struct Particles
 	{
@@ -25,8 +26,6 @@ public:
 	Particles water;
 	Particles stone;
 	Particles gas;
-
-	std::string selectedParticle;
 
 private:
 	void ChangeParticle();

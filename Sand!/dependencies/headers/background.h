@@ -3,7 +3,6 @@
 
 #include "globals.h"
 #include "player.h"
-
 #include <memory>
 
 class Background : public GameObjects
