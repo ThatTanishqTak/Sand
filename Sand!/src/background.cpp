@@ -16,14 +16,12 @@ Background::~Background() { /* EMPTY */ }
 void Background::Update()
 {
 	UpdateGrid(0, player->currentParticle); // On left click
-
 	Physics();
 }
 
 void Background::Render() 
 {
 	RenderGrid();
-
 	UI();
 }
 
